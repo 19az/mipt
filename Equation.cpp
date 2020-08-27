@@ -8,34 +8,36 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2);
 
 int main()
     {
-    printf ("# Square equation solver\n");
-    printf ("# By Anton Zezin 2020\n\n");
+    printf("# Square equation solver\n");
+    printf("# By Anton Zezin 2020\n\n");
+
 
     double a = 0, b = 0, c = 0;
-    printf ("# Enter a, b, c:\n");
-    while (scanf ("%lg %lg %lg", &a, &b, &c) != 3)
+    printf("# Enter a, b, c:\n");
+    while (scanf("%lg %lg %lg", &a, &b, &c) != 3)
         {
-        printf ("Wrong type of data\n");
+        printf("Wrong type of data\n");
+        while (getchar() != '\n');
         }
 
     double x1 = 0, x2 = 0;
     int number_of_roots = square_equation_solve(a, b, c, &x1, &x2);
 
-    switch (number_of_roots)
+    switch(number_of_roots)
         {
-        case 0: printf ("No roots");
+        case 0: printf("No roots");
         break;
 
-        case 1: printf ("Equation has 1 root: %g\n", x1);
+        case 1: printf("Equation has 1 root: %g\n", x1);
         break;
 
-        case 2: printf ("Equation has 2 roots: %g and %g\n", x1, x2);
+        case 2: printf("Equation has 2 roots: %g and %g\n", x1, x2);
         break;
 
-        case INF: printf ("Any number\n");
+        case INF: printf("Any number\n");
         break;
 
-        default: printf ("Error, equation has %d roots", number_of_roots);
+        default: printf("Error, equation has %d roots", number_of_roots);
         return 1;
         }
 
@@ -57,9 +59,9 @@ int main()
 int square_equation_solve(double a, double b, double c, double* x1, double* x2)
     {
 
-    assert (x1 != NULL);
-    assert (x2 != NULL);
-    assert (x1 != x2);
+    assert(x1 != NULL);
+    assert(x2 != NULL);
+    assert(x1 != x2);
 
     if (fabs(a) < EPS)
         {
@@ -85,12 +87,12 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2)
                 }
             else
                 {
-                double ans = (- c/a);
+                double ans = -c/a;
                 if (ans > 0)
                     {
-                    *x1 = - sqrt (ans);
-                    *x2 = sqrt (ans);
-                    return 2;    
+                    *x1 = -sqrt(ans);
+                    *x2 = sqrt(ans);
+                    return 2;
                     }
                 else
                     {
@@ -103,26 +105,26 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2)
             if (fabs(c) < EPS)
                 {
                 *x1 = 0;
-                *x2 = (- b/a);
-                return 2;   
+                *x2 = -b/a;
+                return 2;
                 }
             else
                 {
                 double d = b*b - 4*a*c;
                 if (d < 0)
                     {
-                    return INF;
+                    return 0;
                     }
                 else if (fabs(d) < EPS)
                     {
-                    *x1 = (- b/(2*a));
-                    return 1;  
+                    *x1 = -b/(2*a);
+                    return 1;
                     }
                 else
                     {
                     *x1 = (-b - sqrt(d))/(2*a);
-                    *x2 = (- b + sqrt(d))/(2*a);
-                    return 2;    
+                    *x2 = (-b + sqrt(d))/(2*a);
+                    return 2;
                     }
                 }
             }
