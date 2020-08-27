@@ -2,7 +2,7 @@
 #include <math.h>
 #include <assert.h>
 #define INF -1
-#define ROUND_ERROR 0.00001
+#define EPS 0.00001
 
 int square_equation_solve(double a, double b, double c, double* x1, double* x2);
 
@@ -29,7 +29,7 @@ int main()
         case 1: printf ("Equation has 1 root: %g\n", x1);
         break;
 
-        case 2: printf ("Equation has 2 root: %g and %g\n", x1, x2);
+        case 2: printf ("Equation has 2 roots: %g and %g\n", x1, x2);
         break;
 
         case INF: printf ("Any number\n");
@@ -61,9 +61,9 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2)
     assert (x2 != NULL);
     assert (x1 != x2);
 
-    if (a == 0)
+    if (fabs(a) < EPS)
         {
-        if (b == 0)
+        if (fabs(b) < EPS)
             {
             return (c == 0)? INF : 0;
             }
@@ -76,22 +76,55 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2)
 
     else
         {
-        double d = b*b - 4*a*c;
-
-        if (d == 0)
+        if (fabs(b) < EPS)
             {
-            *x1 = - b/(2*a);
-            return 1;
-            }
-        else if (d < 0)
-            {
-            return 0;
+            if (fabs(c) < EPS)
+                {
+                *x1 = 0;
+                return 1;
+                }
+            else
+                {
+                double ans = (- c/a);
+                if (ans > 0)
+                    {
+                    *x1 = - sqrt (ans);
+                    *x2 = sqrt (ans);
+                    return 2;    
+                    }
+                else
+                    {
+                    return 0;
+                    }
+                }
             }
         else
             {
-            *x1 = (- b - sqrt(d))/(2*a);
-            *x2 = (- b + sqrt(d))/(2*a);
-            return 2;
+            if (fabs(c) < EPS)
+                {
+                *x1 = 0;
+                *x2 = (- b/a);
+                return 2;   
+                }
+            else
+                {
+                double d = b*b - 4*a*c;
+                if (d < 0)
+                    {
+                    return INF;
+                    }
+                else if (fabs(d) < EPS)
+                    {
+                    *x1 = (- b/(2*a));
+                    return 1;  
+                    }
+                else
+                    {
+                    *x1 = (-b - sqrt(d))/(2*a);
+                    *x2 = (- b + sqrt(d))/(2*a);
+                    return 2    
+                    }
+                }
             }
         }
     }
