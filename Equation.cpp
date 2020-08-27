@@ -8,6 +8,7 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2);
 int main()
     {
     printf ("# Square equation solver\n");
+    printf ("# By Anton Zezin 2020\n\n");
 
     double a = 0, b = 0, c = 0;
     printf ("# Enter a, b, c:\n");
