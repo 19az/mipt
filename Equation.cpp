@@ -1,8 +1,25 @@
+/*!
+ *@file Equation.cpp
+ */
+
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
 #define INF -1
 #define EPS 0.00001
+
+
+/*!
+ *@brief Solves square equation ax^2+bx+c=0
+ *
+ *@param [in]  a   a-coef
+ *@param [in]  b   b-coef
+ *@param [in]  c   c-coef
+ *@param [out] x1  pointer to the 1st root
+ *@param [out] x2  pointer to the 2nd root
+ *
+ *@return Number of roots
+ */
 
 int square_equation_solve(double a, double b, double c, double* x1, double* x2);
 
@@ -44,17 +61,6 @@ int main()
     return 0;
     }
 
-//-----------------------------------------------------------------------------
-//! This function solves square equation ax^2+bx+c=0
-//!
-//! @param [in]  a   a-coef
-//! @param [in]  b   b-coef
-//! @param [in]  c   c-coef
-//! @param [out] x1  pointer to the 1st root
-//! @param [out] x2  pointer to the 2nd root
-//!
-//! @return Number of roots
-//-----------------------------------------------------------------------------
 
 int square_equation_solve(double a, double b, double c, double* x1, double* x2)
     {
