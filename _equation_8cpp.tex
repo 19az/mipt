@@ -1,0 +1,51 @@
+\hypertarget{_equation_8cpp}{}\doxysection{Equation.\+cpp File Reference}
+\label{_equation_8cpp}\index{Equation.cpp@{Equation.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_equation_8cpp_a12c2040f25d8e3a7b9e1c2024c618cb6}\label{_equation_8cpp_a12c2040f25d8e3a7b9e1c2024c618cb6}} 
+\#define {\bfseries I\+NF}~-\/1
+\item 
+\mbox{\Hypertarget{_equation_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}\label{_equation_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}} 
+\#define {\bfseries E\+PS}~0.\+00001
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_equation_8cpp_ae19e06b8c1e7638af55fd94b469ec5b7}{square\+\_\+equation\+\_\+solve}} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\begin{DoxyCompactList}\small\item\em Solves square equation ax$^\wedge$2+bx+c=0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_equation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_equation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_equation_8cpp_ae19e06b8c1e7638af55fd94b469ec5b7}\label{_equation_8cpp_ae19e06b8c1e7638af55fd94b469ec5b7}} 
+\index{Equation.cpp@{Equation.cpp}!square\_equation\_solve@{square\_equation\_solve}}
+\index{square\_equation\_solve@{square\_equation\_solve}!Equation.cpp@{Equation.cpp}}
+\doxysubsubsection{\texorpdfstring{square\_equation\_solve()}{square\_equation\_solve()}}
+{\footnotesize\ttfamily int square\+\_\+equation\+\_\+solve (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+
+
+Solves square equation ax$^\wedge$2+bx+c=0. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & a-\/coef \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & b-\/coef \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & c-\/coef \\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & pointer to the 1st root \\
+\hline
+\mbox{\texttt{ out}}  & {\em x2} & pointer to the 2nd root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of roots 
+\end{DoxyReturn}
