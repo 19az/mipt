@@ -97,7 +97,7 @@ int square_equation_solve(double a, double b, double c, double* x1, double* x2)
                 if (ans > 0)
                     {
                     *x1 = -sqrt(ans);
-                    *x2 = sqrt(ans);
+                    *x2 = +sqrt(ans);
                     return 2;
                     }
                 else
