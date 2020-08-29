@@ -117,7 +117,6 @@ int square_equation_solve(double  a,
                 *x1 = 0;
                 return 1;
             }
-
             else {
                 double ans = -c/a;
                 if (ans > 0) {
@@ -125,7 +124,6 @@ int square_equation_solve(double  a,
                     *x2 = -*x1;
                     return 2;
                 }
-
                 else
                     return 0;
             }
@@ -137,18 +135,14 @@ int square_equation_solve(double  a,
                 return 2;
             }
 	    else {
-		double d = b*b - 4*a*c;
+		double d = b*b - 4*a*c;    
                 if (d < 0)
                     return 0;
-		else if (equality_check(d, 0)) {
-                    *x1 = -b/(2*a);
-                    return 1;
-                }
 		else {
 		    double square_root_of_d = sqrt(d);
                     *x1 = (-b - square_root_of_d)/(2*a);
                     *x2 = (-b + square_root_of_d)/(2*a);
-                    return 2;
+                    return (equality_check(d, 0)) ? 1 : 2;
                 }
             }
         }
@@ -160,7 +154,7 @@ int square_equation_solve(double  a,
 void unit_test_equation_solver() {
     printf("# Unit test for square_equation_solver func\n\n");
 
-                                     // {a, b,  c, nr*, x1, x2}  *number of roots
+	                                      // {a, b,  c, nr*, x1, x2}  *number of roots
     double tests[NUMBER_OF_TESTS_EQUATION][6] = {{0, 0,  0, INF,  0,  0}, // 1
                                                  {0, 0,  1, 0  ,  0,  0}, // 2
                                                  {0, 1,  0, 1  ,  0,  0}, // 3
@@ -180,6 +174,7 @@ void unit_test_equation_solver() {
     double x2 = 0;
 	
     for(int i = 0; i < NUMBER_OF_TESTS_EQUATION; i++) {
+	    
         printf("# Test # %d \n", i + 1);
         
 	x1 = 0;
@@ -251,7 +246,9 @@ void unit_test_equality_check() {
     bool report[NUMBER_OF_TESTS_EQUALITY];
     
     for (int i = 0; i < NUMBER_OF_TESTS_EQUALITY; i++) {
+	    
         printf("# Test # %d\n", i);
+	    
 	if (equality_check(tests[i][0], tests[i][1]) == tests[i][2]) {
 	    printf("# Test # %d OK\n\n", i);
 	    report[i] = true;
