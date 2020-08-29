@@ -84,7 +84,7 @@ int square_equation_solve(double  a,
 
     if (fabs(a) < EPS){
         if (fabs(b) < EPS){
-            return (fabs(c) < EPS)? INF : 0;
+            return (fabs(c) < EPS) ? INF : 0;
             }
         else{
             *x1 = -c/b;
