@@ -46,7 +46,9 @@ void unit_test_equation_solver();
 
 void unit_test_equality_check();
 
-int main(){
+//=============================================================================
+
+int main() {
     printf("# Square equation solver\n");
     printf("# By Anton Zezin 2020\n\n");
 
@@ -88,6 +90,7 @@ int main(){
     return 0;
 }
 
+//=============================================================================
 
 int square_equation_solve(double  a,
 			  double  b,
@@ -152,6 +155,7 @@ int square_equation_solve(double  a,
     }
 }
 
+//=============================================================================
 
 void unit_test_equation_solver() {
     printf("# Unit test for square_equation_solver func\n\n");
@@ -229,9 +233,13 @@ void unit_test_equation_solver() {
         return;
 }
 
+//=============================================================================
+
 bool equality_check(double num1, double num2) {
     return (fabs(num1 - num2) < EPS) ? true : false;
 }
+
+//=============================================================================
 
 void unit_test_equality_check() {
     printf("# Unit test for equality_check func\n\n");
