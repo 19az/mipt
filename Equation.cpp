@@ -24,9 +24,9 @@
 
 int square_equation_solve(double  a,
                           double  b,
-			              double  c,
-			              double* x1,
-			              double* x2);
+			  double  c,
+	                  double* x1,
+      	                  double* x2);
 
 
 void unit_test();
