@@ -192,15 +192,17 @@ void unit_test(){
                    "#        b        = %lg\n"
                    "#        c        = %lg\n"
                    "# number of roots = %lg\n"
-                   "#        x1       = %lg\n"
-                   "#        x2       = %lg\n",
-
+                   "#  x1(expected)   = %lg\n"
+                   "#  x2(expected)   = %lg\n"
+		   "#  x1 (result)    = %lg\n"
+		   "#  x2 (result)    = %lg\n",
                                    tests[i][0],
                                    tests[i][1],
                                    tests[i][2],
                                    tests[i][3],
                                    tests[i][4],
-                                   tests[i][5]);
+                                   tests[i][5],
+		  		       x1, x2);
 
             printf("# Test # %d FAILED\n\n", i+1);
 
