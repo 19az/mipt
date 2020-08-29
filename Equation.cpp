@@ -73,10 +73,10 @@ int main(){
 
 
 int square_equation_solve(double  a,
-			              double  b,
-			              double  c,
-			              double* x1,
-	            		  double* x2){
+			  double  b,
+	                  double  c,
+      	                  double* x1,
+	                  double* x2){
 
     assert(x1 != NULL);
     assert(x2 != NULL);
@@ -114,7 +114,7 @@ int square_equation_solve(double  a,
 
         else{
             if (fabs(c) < EPS){
-                *x1 =    0;
+                *x1 = 0;
                 *x2 = -b/a;
                 return 2;
                 }
