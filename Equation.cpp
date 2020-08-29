@@ -188,21 +188,22 @@ void unit_test(){
 
         else{
 
-            printf("#        a        = %lg\n"
-                   "#        b        = %lg\n"
-                   "#        c        = %lg\n"
-                   "# number of roots = %lg\n"
-                   "#  x1(expected)   = %lg\n"
-                   "#  x2(expected)   = %lg\n"
-		   "#  x1 (result)    = %lg\n"
-		   "#  x2 (result)    = %lg\n",
+            printf("#           a          = %lg\n"
+                   "#           b          = %lg\n"
+                   "#           c          = %lg\n"
+                   "# number of roots(exp) = %lg\n"
+                   "#        x1(exp)       = %lg\n"
+                   "#        x2(exp)       = %lg\n"
+		   "# number of roots(res) = %lg\n"
+		   "#        x1(res)       = %lg\n"
+		   "#        x2(res)       = %lg\n",
                                    tests[i][0],
                                    tests[i][1],
                                    tests[i][2],
                                    tests[i][3],
                                    tests[i][4],
                                    tests[i][5],
-		  		       x1, x2);
+		  		   number_of_roots, x1, x2);
 
             printf("# Test # %d FAILED\n\n", i+1);
 
