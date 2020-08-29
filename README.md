@@ -1,3 +1,2 @@
-# my projects
-## square equation solver 
+# square equation solver 
 Documentary: https://19az.github.io/mipt/
