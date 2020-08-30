@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Square equation solver: Equation.cpp File Reference</title>
-<link href="doc/tabs.css" rel="stylesheet" type="text/css"/>
+<title>My Project: Equation.cpp File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="doc/jquery.js"></script>
 <script type="text/javascript" src="doc/dynsections.js"></script>
 <link href="doc/search/search.css" rel="stylesheet" type="text/css"/>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Square equation solver
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -80,22 +80,86 @@ Macros</h2></td></tr>
 <tr class="separator:a12c2040f25d8e3a7b9e1c2024c618cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ebf6899d6c1c8b7b9d09be872c05aae"><td class="memItemLeft" align="right" valign="top"><a id="a6ebf6899d6c1c8b7b9d09be872c05aae"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#a6ebf6899d6c1c8b7b9d09be872c05aae">EPS</a>&#160;&#160;&#160;0.00001</td></tr>
-<tr class="memdesc:a6ebf6899d6c1c8b7b9d09be872c05aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking equality float type numbers to zero. <br /></td></tr>
+<tr class="memdesc:a6ebf6899d6c1c8b7b9d09be872c05aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking equality of two numbers. <br /></td></tr>
 <tr class="separator:a6ebf6899d6c1c8b7b9d09be872c05aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41a652b8db53a3726b4890b39e024e6"><td class="memItemLeft" align="right" valign="top"><a id="ad41a652b8db53a3726b4890b39e024e6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#ad41a652b8db53a3726b4890b39e024e6">NUMBER_OF_TESTS_EQUATION</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:ad41a652b8db53a3726b4890b39e024e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of unit-tests for square_equation_solve func. <br /></td></tr>
+<tr class="separator:ad41a652b8db53a3726b4890b39e024e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced73f35810cd5a624f3cb6c9b1999cf"><td class="memItemLeft" align="right" valign="top"><a id="aced73f35810cd5a624f3cb6c9b1999cf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#aced73f35810cd5a624f3cb6c9b1999cf">NUMBER_OF_TESTS_EQUALITY</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:aced73f35810cd5a624f3cb6c9b1999cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of unit-tests for equality_check func. <br /></td></tr>
+<tr class="separator:aced73f35810cd5a624f3cb6c9b1999cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25364719e978ceebcf98197759b43a9a"><td class="memItemLeft" align="right" valign="top"><a id="a25364719e978ceebcf98197759b43a9a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#a25364719e978ceebcf98197759b43a9a">UT</a>&#160;&#160;&#160;<a class="el" href="index.html#a798e4073d613ca5ba9618e1b3253df14">Y</a></td></tr>
+<tr class="memdesc:a25364719e978ceebcf98197759b43a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do you want to test functions? (Y / N) <br /></td></tr>
+<tr class="separator:a25364719e978ceebcf98197759b43a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a798e4073d613ca5ba9618e1b3253df14"><td class="memItemLeft" align="right" valign="top"><a id="a798e4073d613ca5ba9618e1b3253df14"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#a798e4073d613ca5ba9618e1b3253df14">Y</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memdesc:a798e4073d613ca5ba9618e1b3253df14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y == Yes == true. <br /></td></tr>
+<tr class="separator:a798e4073d613ca5ba9618e1b3253df14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0240ac851181b84ac374872dc5434ee4"><td class="memItemLeft" align="right" valign="top"><a id="a0240ac851181b84ac374872dc5434ee4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#a0240ac851181b84ac374872dc5434ee4">N</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:a0240ac851181b84ac374872dc5434ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">N == No == false. <br /></td></tr>
+<tr class="separator:a0240ac851181b84ac374872dc5434ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae19e06b8c1e7638af55fd94b469ec5b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#ae19e06b8c1e7638af55fd94b469ec5b7">square_equation_solve</a> (double a, double b, double c, double *x1, double *x2)</td></tr>
 <tr class="memdesc:ae19e06b8c1e7638af55fd94b469ec5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves square equation ax^2+bx+c=0.  <a href="index.html#ae19e06b8c1e7638af55fd94b469ec5b7">More...</a><br /></td></tr>
 <tr class="separator:ae19e06b8c1e7638af55fd94b469ec5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e55f3e436b0268b26875038536f8e53"><td class="memItemLeft" align="right" valign="top"><a id="a8e55f3e436b0268b26875038536f8e53"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unit_test</b> ()</td></tr>
-<tr class="separator:a8e55f3e436b0268b26875038536f8e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1543c9cd8639a516c410286fe91fd7da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="index.html#a1543c9cd8639a516c410286fe91fd7da">equality_check</a> (double num1, double num2)</td></tr>
+<tr class="memdesc:a1543c9cd8639a516c410286fe91fd7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks equality of two numbers.  <a href="index.html#a1543c9cd8639a516c410286fe91fd7da">More...</a><br /></td></tr>
+<tr class="separator:a1543c9cd8639a516c410286fe91fd7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb0a0d95dc589111cec2ec45ffa3f5b"><td class="memItemLeft" align="right" valign="top"><a id="aceb0a0d95dc589111cec2ec45ffa3f5b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unit_test_equation_solver</b> ()</td></tr>
+<tr class="separator:aceb0a0d95dc589111cec2ec45ffa3f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a9f42fa452dd6ddf019d240d7cfe8e"><td class="memItemLeft" align="right" valign="top"><a id="ad7a9f42fa452dd6ddf019d240d7cfe8e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unit_test_equality_check</b> ()</td></tr>
+<tr class="separator:ad7a9f42fa452dd6ddf019d240d7cfe8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a1543c9cd8639a516c410286fe91fd7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1543c9cd8639a516c410286fe91fd7da">&#9670;&nbsp;</a></span>equality_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool equality_check </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>num1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>num2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks equality of two numbers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">num1</td><td>1st number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num2</td><td>2nd number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if num1 == num2, false if num1 != num2 </dd></dl>
+
+</div>
+</div>
 <a id="ae19e06b8c1e7638af55fd94b469ec5b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae19e06b8c1e7638af55fd94b469ec5b7">&#9670;&nbsp;</a></span>square_equation_solve()</h2>
 
@@ -158,7 +222,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doc/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
 </small></address>
 </body>
 </html>
