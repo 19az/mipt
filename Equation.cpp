@@ -49,6 +49,14 @@ void unit_test_equation_solver();
 
 void unit_test_equality_check();
 
+/*!
+ *@brief Makes a report after unit-test
+ *
+ *@param [in] report pointer to massive report
+ */
+
+void report_func(bool* report, int number_of_tests);
+
 //=============================================================================
 
 int main() {
@@ -114,7 +122,10 @@ int square_equation_solve(double  a,
     assert(x2 != NULL);
     assert(x1 != x2);
 	
-    if (std::isfinite());
+    if (std::isfinite(a) || std::isfinite(b) || std::isfinite(c)) {
+        print("Error, some coefficients are not a numbers")
+	return NAN;
+    }
 
     if (equality_check(a, 0)) {
 	    
@@ -202,7 +213,7 @@ void unit_test_equation_solver() {
                                                  {1, 0,  1, 0  ,  0,  0}, // 7
                                                  {1, 1,  0, 2  ,  0, -1}, // 8
                                                  {1, 1,  1, 0  ,  0,  0}, // 9
-                                                 {1, 2,  1, 1  , -1,  0}, // 10
+                                                 {1, 2,  1, 1  , -1, -1}, // 10
                                                  {2, 6,  4, 2  , -2, -1}};// 11
 
 
@@ -258,16 +269,7 @@ void unit_test_equation_solver() {
         }
 	    
     }
-        printf("# Failed test(s) number(s): ");
-
-        for(int i = 0; i < NUMBER_OF_TESTS_EQUATION; i++) {
-		
-            if (not report[i]) {
-                printf("%d ", i + 1);
-            
-	    }
-        
-	}
+        report_func(report, NUMBER_OF_TESTS_EQUATION);
         printf("\n\n# Unit test is over\n\n");
         return;
 
@@ -284,13 +286,14 @@ bool equality_check(double num1, double num2) {
 //=============================================================================
 
 void unit_test_equality_check() {
+	
     printf("# Unit test for equality_check func\n\n");
 	                                     //{num1  , num2, ans},
     double tests[NUMBER_OF_TESTS_EQUALITY][3] {{1     , 0   , 0  }, //1
 					       {EPS   , 0   , 0  }, //2
 					       {EPS/10, 0   , 1  }};//3
     
-    bool report[NUMBER_OF_TESTS_EQUALITY];
+    bool report[NUMBER_OF_TESTS_EQUALITY] = {};
     
     for (int i = 0; i < NUMBER_OF_TESTS_EQUALITY; i++) {
 	    
@@ -311,18 +314,26 @@ void unit_test_equality_check() {
     
     }
     
-    printf("# Failed test(s) number(s): ");
-	
-    for(int i = 0; i < NUMBER_OF_TESTS_EQUALITY; i++) {
-            
-	    if (not report[i]) {
-            
-		printf("%d ", i + 1);
-            
-	    }
-        
-    }
+    report_func(report, NUMBER_OF_TESTS_EQUALITY);
     printf("\n\n# Unit test is over\n\n");
     return;
 
+}
+
+//=============================================================================
+
+void report_func(bool* report, int number_of_tests) {
+	
+    printf("# Failed test(s) number(s): ");
+    for(int i = 0; i < number_of_tests; i++) {
+		
+        if (not report[i]) {
+		
+            printf("%d ", i + 1);
+            
+	}
+    
+    }
+    return;
+	
 }
