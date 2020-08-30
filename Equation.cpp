@@ -7,9 +7,12 @@
 #include <assert.h>
 
 #define INF -1                         ///< In case of infinite numbers of roots
-#define EPS 0.00001                    ///< Checking equality of two float type numbers
+#define EPS 0.00001                    ///< Checking equality of two numbers
 #define NUMBER_OF_TESTS_EQUATION 11    ///< Number of unit-tests for square_equation_solve func
 #define NUMBER_OF_TESTS_EQUALITY 3     ///< Number of unit-tests for equality_check func
+#define UT Y                           ///< Do you want to test functions? (Y / N)
+#define Y true                         ///< Y == Yes == true
+#define N false                        ///< N == No == false
 
 /*!
  *@brief Solves square equation ax^2+bx+c=0
@@ -49,21 +52,27 @@ void unit_test_equality_check();
 //=============================================================================
 
 int main() {
+	
     printf("# Square equation solver\n");
     printf("# By Anton Zezin 2020\n\n");
 
-    unit_test_equation_solver();
-	
-    unit_test_equality_check();
+    if (UT) {
+        
+	unit_test_equation_solver();
+        unit_test_equality_check();
 
+    }	    
+	    
     double a = 0;
     double b = 0;
     double c = 0;
     printf("# Enter a, b, c:\n");
 
     while (scanf("%lg %lg %lg", &a, &b, &c) != 3) {
+	    
         printf("# Wrong type of data\n");
         while (getchar() != '\n');
+	    
     }
 
     double x1 = 0;
@@ -71,6 +80,7 @@ int main() {
     int number_of_roots = square_equation_solve(a, b, c, &x1, &x2);
 
     switch(number_of_roots) {
+		    
         case   0: printf("# No roots\n");
         break;
 
@@ -85,9 +95,11 @@ int main() {
 
         default : printf("# Error, equation has %d roots\n", number_of_roots);
         return 1;
+		    
     }
 
     return 0;
+	
 }
 
 //=============================================================================
@@ -103,50 +115,74 @@ int square_equation_solve(double  a,
     assert(x1 != x2);
 
     if (equality_check(a, 0)) {
+	    
         if (equality_check(b, 0)) {
+		
             return (equality_check(c, 0)) ? INF : 0;
+		
         }
         else {
+		
             *x1 = -c/b;
             return 1;
+		
         }
     }
     else {
+	    
         if (equality_check(b, 0)) {
+		
             if (equality_check(c, 0)) {
+		    
                 *x1 = 0;
                 return 1;
+		    
             }
             else {
+		    
                 double ans = -c/a;
                 if (ans > 0) {
+			
                     *x1 = -sqrt(ans);
                     *x2 = -*x1;
                     return 2;
+			
                 }
                 else
                     return 0;
+		    
             }
+		
         }
 	else {
+		
             if (equality_check(c, 0)) {
+		    
                 *x1 = 0;
                 *x2 = -b/a;
                 return 2;
+		    
             }
 	    else {
+		    
 		double d = b*b - 4*a*c;    
                 if (d < 0)
                     return 0;
 		else {
+			
 		    double square_root_of_d = sqrt(d);
                     *x1 = (-b - square_root_of_d)/(2*a);
                     *x2 = (-b + square_root_of_d)/(2*a);
                     return (equality_check(d, 0)) ? 1 : 2;
+			
                 }
+		    
             }
+		
         }
+	    
     }
+	
 }
 
 //=============================================================================
@@ -192,6 +228,7 @@ void unit_test_equation_solver() {
             printf("# Test # %d OK\n\n", i + 1);
 
             report[i] = true;
+		
         }
 	else {
 
@@ -215,23 +252,31 @@ void unit_test_equation_solver() {
             printf("# Test # %d FAILED\n\n", i + 1);
 
             report[i] = false;
+		
         }
+	    
     }
         printf("# Failed test(s) number(s): ");
 
         for(int i = 0; i < NUMBER_OF_TESTS_EQUATION; i++) {
+		
             if (not report[i]) {
                 printf("%d ", i + 1);
-            }
-        }
+            
+	    }
+        
+	}
         printf("\n\n# Unit test is over\n\n");
         return;
+
 }
 
 //=============================================================================
 
 bool equality_check(double num1, double num2) {
+	
     return (fabs(num1 - num2) < EPS) ? true : false;
+	
 }
 
 //=============================================================================
@@ -250,22 +295,32 @@ void unit_test_equality_check() {
         printf("# Test # %d\n", i);
 	    
 	if (equality_check(tests[i][0], tests[i][1]) == tests[i][2]) {
+		
 	    printf("# Test # %d OK\n\n", i);
 	    report[i] = true;
+		
 	}
 	else {
+		
 	    printf("# Test # %d FAILED\n\n", i);
  	    report[i] = false;
+	
 	}
+    
     }
     
     printf("# Failed test(s) number(s): ");
 	
     for(int i = 0; i < NUMBER_OF_TESTS_EQUALITY; i++) {
-            if (not report[i]) {
-                printf("%d ", i + 1);
-            }
-        }
+            
+	    if (not report[i]) {
+            
+		printf("%d ", i + 1);
+            
+	    }
+        
+    }
     printf("\n\n# Unit test is over\n\n");
     return;
+
 }
