@@ -32,7 +32,7 @@ int square_equation_solve(double  a,
 
 
 /*!
- *@brief Checks equality of two double type numbers
+ *@brief Checks equality of two numbers
  * 
  *@param [in] num1    1st number
  *@param [in] num2    2nd number
