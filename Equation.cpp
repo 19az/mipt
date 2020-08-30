@@ -113,6 +113,8 @@ int square_equation_solve(double  a,
     assert(x1 != NULL);
     assert(x2 != NULL);
     assert(x1 != x2);
+	
+    if (std::isfinite());
 
     if (equality_check(a, 0)) {
 	    
@@ -204,7 +206,7 @@ void unit_test_equation_solver() {
                                                  {2, 6,  4, 2  , -2, -1}};// 11
 
 
-    bool report[NUMBER_OF_TESTS_EQUATION];
+    bool report[NUMBER_OF_TESTS_EQUATION] = {};
 
     double x1 = 0;
     double x2 = 0;
@@ -275,7 +277,7 @@ void unit_test_equation_solver() {
 
 bool equality_check(double num1, double num2) {
 	
-    return (fabs(num1 - num2) < EPS) ? true : false;
+    return (fabs(num1 - num2) < EPS);
 	
 }
 
